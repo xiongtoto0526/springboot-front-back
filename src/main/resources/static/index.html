@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <div>测试axiso-xht</div>
+  {{ info }}
+</div>
+<script type = "text/javascript">
+new Vue({
+  el: '#app',
+  data () {
+    return {
+      info: null
+    }
+  },
+  mounted () {
+      axios
+          .get('http://localhost:8080/user/sleep50')
+          .then(response => (this.info = response))
+  .catch(function (error) { // 请求失败处理
+          console.log(error);
+      });
+
+    axios
+            .get('http://localhost:8080/user/sleep10')
+            .then(response => (this.info = response))
+  .catch(function (error) { // 请求失败处理
+      console.log(error);
+    });
+
+      axios
+          .get('http://localhost:8080/user/sleep5')
+          .then(response => (this.info = response))
+  .catch(function (error) { // 请求失败处理
+          console.log(error);
+      });
+
+      axios
+          .get('http://localhost:8080/user/ok')
+          .then(response => (this.info = response))
+  .catch(function (error) { // 请求失败处理
+          console.log(error);
+      });
+
+  }
+})
+</script>
+</body>
+</html>
